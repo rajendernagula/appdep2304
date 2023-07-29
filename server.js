@@ -95,7 +95,7 @@ app.delete("/deleteUser", async (req, res) => {
   }
 });
 
-app.post("/validateLogin", upload.none(), async (req, res) => {
+app.post("/validateLogin", upload.single(), async (req, res) => {
   let results = await User.find().and({ email: req.body.email });
 
   if (results.length > 0) {
